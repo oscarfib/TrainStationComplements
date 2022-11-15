@@ -103,7 +103,7 @@ public class NavMeshNavigator : MonoBehaviour
 			if (destroyWhenOnDestination&&agent.remainingDistance<=0.4) Destroy(gameObject);
 			else if (agent.remainingDistance<=0.2) {
 				if (Random.Range(0, 100)<idleChance) {
-					idle=true;
+					if(!agent.GetComponent<Animator>().GetBool("Handbag")) idle=true;
 				}
 				else SetRandomDestination();
 			} else if (!panicking) CheckIfStuck();

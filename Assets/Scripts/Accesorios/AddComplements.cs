@@ -4,30 +4,63 @@ using UnityEngine;
 
 public class AddComplements : MonoBehaviour
 {
-
+    [Range(0,100)]
+    public int manos;
+    [Range(0,100)]
+    public int espalda;
+    [Range(0,100)]
+    public int cara;
+    [Range(0,100)]
+    public int cabeza;
     public GameObject Personajes;
     public List<GameObject> ManosM;
     public List<GameObject> ManosF;
     public List<GameObject> EspaldaM;
     public List<GameObject> EspaldaF;
-    // Start is called before the first frame update
+    public List<GameObject> Cara;
+    public List<GameObject> CabezaM;
+    public List<GameObject> CabezaF;
     private bool visible;
     void Start()
     {
         Personajes = GameObject.Find("Personatges");
         //Mujeres
         foreach (Transform persona in Personajes.transform.GetChild(0)){
-            int r =  Random.Range(0,ManosF.Count + 1);
-            if(r<ManosF.Count) ManosF[r].GetComponent<Complement>().addOn(persona,false);
-            r =  Random.Range(0,EspaldaF.Count + 1);
-            if(r<EspaldaF.Count) EspaldaF[r].GetComponent<Complement>().addOn(persona,false);
+            //Manos
+            int p = Random.Range(0,100);
+            int r = Random.Range(0,ManosF.Count);
+            if(p<manos) ManosF[r].GetComponent<Complement>().addOn(persona,false);
+            //Espalda
+            p = Random.Range(0,100);
+            r = Random.Range(0,EspaldaF.Count);
+            if(p<espalda) EspaldaF[r].GetComponent<Complement>().addOn(persona,false);
+            //Cara
+            p = Random.Range(0,100);
+            r = Random.Range(0,Cara.Count);
+            if(p<cara) Cara[r].GetComponent<Complement>().addOn(persona,false);
+            //Cabeza
+            p = Random.Range(0,100);
+            r = Random.Range(0,CabezaF.Count);
+            if(p<cabeza) CabezaF[r].GetComponent<Complement>().addOn(persona,false);
         }
         //Hombres
         foreach (Transform persona in Personajes.transform.GetChild(1)){
-            int r =  Random.Range(0,ManosM.Count + 1);
-            if(r<ManosM.Count) ManosM[r].GetComponent<Complement>().addOn(persona,false);
-            r =  Random.Range(0,EspaldaM.Count + 1);
-            if(r<EspaldaM.Count) EspaldaM[r].GetComponent<Complement>().addOn(persona,false);
+            //Manos
+            int p = Random.Range(0,100);
+            int r = Random.Range(0,ManosM.Count);
+            if(p<manos) ManosM[r].GetComponent<Complement>().addOn(persona,true);
+            //Espalda
+            p = Random.Range(0,100);
+            r = Random.Range(0,EspaldaM.Count);
+            if(p<espalda) EspaldaM[r].GetComponent<Complement>().addOn(persona,true);
+            //Cara
+            p = Random.Range(0,100);
+            r = Random.Range(0,Cara.Count);
+            if(p<cara) Cara[r].GetComponent<Complement>().addOn(persona,true);
+            //Cabeza
+            p = Random.Range(0,100);
+            r = Random.Range(0,CabezaM.Count);
+            if(p<cabeza) CabezaM[r].GetComponent<Complement>().addOn(persona,false);
         }
 
         visible = true;
