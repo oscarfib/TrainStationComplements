@@ -51,7 +51,6 @@ public class ClickManager : MonoBehaviour
     {
 		ClickManager.instance=this;
         l_mask = LayerMask.GetMask("Interactuable");
-		Debug.Log(gameObject.name);
 	}
 
     // Update is called once per frame

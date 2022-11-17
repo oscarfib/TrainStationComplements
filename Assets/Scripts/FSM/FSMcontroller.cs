@@ -27,13 +27,13 @@ public class FSMcontroller : MonoBehaviour
 	}
 
 	private void Start() {
-		activeState.OnEnterState(this);
+		activeState?.OnEnterState(this);
 	}
 
 	private void Update() {
-		activeState.PerformConstantActions(this);
-		FSMstate state = activeState.CheckTransitions(this);
-		if (!state.isStayState) {
+		activeState?.PerformConstantActions(this);
+		FSMstate state = activeState?.CheckTransitions(this);
+		if (state) if (!state.isStayState) {
 			activeState=state;
 			activeState.OnEnterState(this);
 		}

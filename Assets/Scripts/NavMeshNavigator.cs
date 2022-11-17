@@ -108,5 +108,6 @@ public class NavMeshNavigator : MonoBehaviour
 				else SetRandomDestination();
 			} else if (!panicking) CheckIfStuck();
 		}
+		agent.transform.position = new Vector3(agent.transform.position.x, 0, agent.transform.position.z);
     }
 }
