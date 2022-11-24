@@ -12,6 +12,7 @@ public class NavMeshNavigator : MonoBehaviour
 	public bool destroyWhenOnDestination;
 	public bool idle;
 	public float randomRadius;
+	public float vel;
 	private float timeToConsiderStuck;
 	private float stuckDistance;
 	private float stuckTimer;
@@ -109,5 +110,7 @@ public class NavMeshNavigator : MonoBehaviour
 			} else if (!panicking) CheckIfStuck();
 		}
 		agent.transform.position = new Vector3(agent.transform.position.x, 0, agent.transform.position.z);
+		vel = Mathf.Min((Mathf.Abs(agent.velocity.x) + Mathf.Abs(agent.velocity.z))/agent.speed,1);
+		agent.GetComponent<Animator>().speed = idle? 1 : vel;
     }
 }

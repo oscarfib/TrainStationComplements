@@ -27,47 +27,51 @@ public class AddComplements : MonoBehaviour
         Personajes = GameObject.Find("Personatges");
         //Mujeres
         foreach (Transform persona in Personajes.transform.GetChild(0)){
-            //Manos
-            int p = Random.Range(0,100);
-            int r = Random.Range(0,ManosF.Count);
-            if(p<manos) {
-                ManosF[r].GetComponent<Complement>().addOn(persona,false);
-                persona.GetComponent<NavMeshAgent>().radius = 0.6f;
+            if(persona.tag!="Idle"){
+                //Manos
+                int p = Random.Range(0,100);
+                int r = Random.Range(0,ManosF.Count);
+                if(p<manos) {
+                    ManosF[r].GetComponent<Complement>().addOn(persona,false);
+                    persona.GetComponent<NavMeshAgent>().radius = 0.6f;
+                }
+                //Espalda
+                p = Random.Range(0,100);
+                r = Random.Range(0,EspaldaF.Count);
+                if(p<espalda) EspaldaF[r].GetComponent<Complement>().addOn(persona,false);
+                //Cara
+                p = Random.Range(0,100);
+                r = Random.Range(0,Cara.Count);
+                if(p<cara) Cara[r].GetComponent<Complement>().addOn(persona,false);
+                //Cabeza
+                p = Random.Range(0,100);
+                r = Random.Range(0,CabezaF.Count);
+                if(p<cabeza) CabezaF[r].GetComponent<Complement>().addOn(persona,false);
             }
-            //Espalda
-            p = Random.Range(0,100);
-            r = Random.Range(0,EspaldaF.Count);
-            if(p<espalda) EspaldaF[r].GetComponent<Complement>().addOn(persona,false);
-            //Cara
-            p = Random.Range(0,100);
-            r = Random.Range(0,Cara.Count);
-            if(p<cara) Cara[r].GetComponent<Complement>().addOn(persona,false);
-            //Cabeza
-            p = Random.Range(0,100);
-            r = Random.Range(0,CabezaF.Count);
-            if(p<cabeza) CabezaF[r].GetComponent<Complement>().addOn(persona,false);
         }
         //Hombres
         foreach (Transform persona in Personajes.transform.GetChild(1)){
-            //Manos
-            int p = Random.Range(0,100);
-            int r = Random.Range(0,ManosM.Count);
-            if(p<manos) {
-                ManosM[r].GetComponent<Complement>().addOn(persona,true);
-                persona.GetComponent<NavMeshAgent>().radius = 0.6f;
+            if(persona.tag!="Idle"){
+                //Manos
+                int p = Random.Range(0,100);
+                int r = Random.Range(0,ManosM.Count);
+                if(p<manos) {
+                    ManosM[r].GetComponent<Complement>().addOn(persona,true);
+                    persona.GetComponent<NavMeshAgent>().radius = 0.6f;
+                }
+                //Espalda
+                p = Random.Range(0,100);
+                r = Random.Range(0,EspaldaM.Count);
+                if(p<espalda) EspaldaM[r].GetComponent<Complement>().addOn(persona,true);
+                //Cara
+                p = Random.Range(0,100);
+                r = Random.Range(0,Cara.Count);
+                if(p<cara) Cara[r].GetComponent<Complement>().addOn(persona,true);
+                //Cabeza
+                p = Random.Range(0,100);
+                r = Random.Range(0,CabezaM.Count);
+                if(p<cabeza) CabezaM[r].GetComponent<Complement>().addOn(persona,false);
             }
-            //Espalda
-            p = Random.Range(0,100);
-            r = Random.Range(0,EspaldaM.Count);
-            if(p<espalda) EspaldaM[r].GetComponent<Complement>().addOn(persona,true);
-            //Cara
-            p = Random.Range(0,100);
-            r = Random.Range(0,Cara.Count);
-            if(p<cara) Cara[r].GetComponent<Complement>().addOn(persona,true);
-            //Cabeza
-            p = Random.Range(0,100);
-            r = Random.Range(0,CabezaM.Count);
-            if(p<cabeza) CabezaM[r].GetComponent<Complement>().addOn(persona,false);
         }
 
         visible = true;

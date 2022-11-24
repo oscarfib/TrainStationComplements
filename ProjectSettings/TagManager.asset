@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Accesorio
   - Pelo
+  - Idle
+  - Test
   layers:
   - Default
   - TransparentFX
